@@ -1,8 +1,8 @@
-import random as random
+from tqdm import tqdm
+import math
 import matplotlib.pyplot as plt
 import numpy as np
-import math
-from tqdm import tqdm
+import random as random
 
 
 def wavefunction(x, y, z, state):
@@ -104,12 +104,19 @@ for j in range(14):
 
     # parameters
     marker = '.'
-    marker_size = 1
+    marker_size = .33
     marker_color = 'black'
+    marker_edge = 'None'
+    alpha=1
 
     # piano XY
     ax = fig.add_subplot(131)
-    ax.scatter(X, Y, s=marker_size, marker=marker, color=marker_color)
+    ax.scatter(X, Y,
+            s=marker_size,
+            marker=marker,
+            color=marker_color,
+            edgecolors=marker_edge,
+            alpha=alpha)
     ax.set_xlim([-10, 10])
     ax.set_ylim([-10, 10])
     ax.set_aspect(1)
@@ -118,7 +125,12 @@ for j in range(14):
 
     # piano YZ
     ax = fig.add_subplot(132)
-    ax.scatter(Y, Z, s=marker_size, marker=marker, color=marker_color)
+    ax.scatter(Y,Z,
+            s=marker_size,
+            marker=marker,
+            color=marker_color,
+            edgecolors=marker_edge,
+            alpha=alpha)
     ax.set_xlim([-10, 10])
     ax.set_ylim([-10, 10])
     ax.set_aspect(1)
@@ -127,7 +139,12 @@ for j in range(14):
 
     # piano XZ
     ax = fig.add_subplot(133)
-    ax.scatter(X, Z, s=marker_size, marker=marker, color=marker_color)
+    ax.scatter(Z,X,
+            s=marker_size,
+            marker=marker,
+            color=marker_color,
+            edgecolors=marker_edge,
+            alpha=alpha)
     ax.set_xlim([-10, 10])
     ax.set_ylim([-10, 10])
     ax.set_aspect(1)
